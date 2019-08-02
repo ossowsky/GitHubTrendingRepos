@@ -1,0 +1,29 @@
+.repoListItem {
+  width: 100%;
+  background-color: #222;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #fff;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border-radius: 4px;
+  
+  &__content {
+    padding: 5px;
+  }
+
+  &__header {
+    padding: 5px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  &__footer {
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 15px;
+    font-weight: 500;
+  }
+}
