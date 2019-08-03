@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import OptionsPanel from "./OptionsPanel";
+import { observer, inject } from "mobx-react"
 
 
-export default class OptionsPanelContainer extends Component {
+class OptionsPanelContainer extends Component {
   state = {
     selectedInterval: "daily",
     selectedLanguage: ""
@@ -13,13 +14,12 @@ export default class OptionsPanelContainer extends Component {
   handleLanguageChange = (e) => this.setState({ selectedLanguage: e.target.options[e.target.selectedIndex].value })
 
   componentDidUpdate(prevProps, prevState) {
-    console.log("dupa1")
     const { selectedInterval, selectedLanguage } = this.state;
 
     if (selectedInterval !== prevState.selectedInterval || selectedLanguage !== prevState.selectedLanguage) {
+      
       return this.props.updateData(selectedInterval, selectedLanguage)
     }
-    console.log("dupa2")
   }
 
   render() {
@@ -37,3 +37,6 @@ export default class OptionsPanelContainer extends Component {
     )
   }
 }
+
+
+export default inject("store")(observer(OptionsPanelContainer))

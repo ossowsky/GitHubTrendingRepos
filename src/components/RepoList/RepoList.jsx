@@ -1,14 +1,14 @@
 import React from 'react';
 import RepoListItem from "../RepoListItem/RepoListItem";
 import "./RepoList.scss";
+import { observer, inject } from "mobx-react"
 
 
-export const RepoList = ({ repos }) => (
+const RepoList = ({ repos }) => (
   <div className="repoList">
-    {console.log("repos", repos)}
     <ul>
-    {repos.map(({ author, description, language, name, stars }) => 
-      <li>
+    {repos.map(({ author, description, language, name, stars }, index) => 
+      <li key={index}>
         <RepoListItem 
           author={author} 
           description={description} 
@@ -23,4 +23,4 @@ export const RepoList = ({ repos }) => (
 )
 
 
-export default RepoList
+export default inject("store")(observer(RepoList))
