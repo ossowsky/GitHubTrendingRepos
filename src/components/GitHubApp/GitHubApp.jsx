@@ -18,7 +18,7 @@ class GitHubApp extends React.Component {
         <div className="app__options">
           <OptionsPanelContainer repos={repos} sortByStars={sortByStars} updateData={updateData}/>
         </div>
-        <main className="app__main">
+        <main className="app__repoList">
           <RepoList repos={repos } />
         </main>
         <footer className="app__footer">

@@ -1,6 +1,18 @@
 .optionsPanel {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   padding: 10px;
+
+  &__section {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    
+  }
+}
+
+.section__title {
+  text-transform: uppercase;
+  padding-bottom: 5px;
 }

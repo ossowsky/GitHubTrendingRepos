@@ -6,9 +6,9 @@ import { observer, inject } from "mobx-react"
 
 const RepoList = ({ repos }) => (
   <div className="repoList">
-    <ul>
+    <ul className="repoList__list">
     {repos.map(({ author, description, language, name, stars }, index) => 
-      <li key={index}>
+      <li className="list__item"key={index}>
         <RepoListItem 
           author={author} 
           description={description} 

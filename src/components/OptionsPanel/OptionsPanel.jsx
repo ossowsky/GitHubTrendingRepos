@@ -4,6 +4,8 @@ import "./OptionsPanel.scss";
 
 const OptionsPanel = ({ handleLanguageChange, handleOptionChange, selectedInterval, selectedLanguage, sortByStars })=> (
   <div className="optionsPanel">
+    <section className="optionsPanel__section">
+      <h3 className="section__title">interval</h3>
     <div>
       <input 
         type="radio" 
@@ -37,17 +39,24 @@ const OptionsPanel = ({ handleLanguageChange, handleOptionChange, selectedInterv
       />
       <label htmlFor="monthly">monthly</label>
     </div>
+    </section>
+    <section className="optionsPanel__section">
+    <h3 className="section__title">language</h3>
     <div>
       <select value={selectedLanguage} onChange={handleLanguageChange}>
-      <option value="">All</option>
+      <option value="">all</option>
         <option value="javascript">JavaScript</option>
         <option value="python">Python</option>
         <option value="java">Java</option>
       </select>
     </div>
+    </section>
+    <section className="optionsPanel__section">
+    <h3 className="section__title">sort</h3>
     <div>
-      <button onClick={sortByStars}>sort by stars asc/desc</button>
+      <button onClick={sortByStars}>sort</button>
     </div>
+    </section>
   </div>  
 )
 

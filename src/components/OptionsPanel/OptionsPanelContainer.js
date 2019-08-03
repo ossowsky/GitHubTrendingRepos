@@ -4,27 +4,19 @@ import { observer, inject } from "mobx-react"
 
 
 class OptionsPanelContainer extends Component {
-  state = {
-    selectedInterval: "daily",
-    selectedLanguage: ""
+  handleOptionChange = (e) => {
+    this.props.store.setInterval(e.target.value);
+    this.props.store.updateData(e.target.value, this.props.store.selectedLanguage)
   }
 
-  handleOptionChange = (e) => this.setState({ selectedInterval: e.target.value })
-
-  handleLanguageChange = (e) => this.setState({ selectedLanguage: e.target.options[e.target.selectedIndex].value })
-
-  componentDidUpdate(prevProps, prevState) {
-    const { selectedInterval, selectedLanguage } = this.state;
-
-    if (selectedInterval !== prevState.selectedInterval || selectedLanguage !== prevState.selectedLanguage) {
-      
-      return this.props.updateData(selectedInterval, selectedLanguage)
-    }
+  handleLanguageChange = (e) => {
+    this.props.store.setLanguage(e.target.value);
+    this.props.store.updateData(this.props.store.selectedInterval, e.target.value)
   }
 
   render() {
-    const { sortByStars } = this.props;
-    const { selectedInterval, selectedLanguage } = this.state;
+    //const { sortByStars } = this.props;
+    const { sortByStars, selectedInterval, selectedLanguage } = this.props.store;
 
     return (
       <OptionsPanel 
