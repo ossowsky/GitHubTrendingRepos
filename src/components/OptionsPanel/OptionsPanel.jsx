@@ -1,64 +1,83 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import "./OptionsPanel.scss";
 
 
-const OptionsPanel = ({ handleLanguageChange, handleOptionChange, selectedInterval, selectedLanguage, sortByStars })=> (
+const OptionsPanel = ({ 
+  handleLanguageChange, 
+  handleOptionChange, 
+  selectedInterval, 
+  selectedLanguage, 
+  sortByStars 
+}) => (
   <div className="optionsPanel">
     <section className="optionsPanel__section">
       <h3 className="section__title">interval</h3>
-    <div>
-      <input 
-        type="radio" 
-        id="daily" 
-        name="sinceButton" 
-        value="daily" 
-        onChange={handleOptionChange} 
-        checked={selectedInterval === "daily"} 
-      />
-      <label htmlFor="daily">daily</label>
-    </div>
-    <div>
-      <input 
-        type="radio" 
-        id="weekly" 
-        name="sinceButton" 
-        value="weekly" 
-        onChange={handleOptionChange} 
-        checked={selectedInterval === "weekly"}
-      />
-      <label htmlFor="weekly">weekly</label>
-    </div>
-    <div>
-      <input 
-        type="radio" 
-        id="monthly" 
-        name="sinceButton" 
-        value="monthly" 
-        onChange={handleOptionChange} 
-        checked={selectedInterval === "monthly"} 
-      />
-      <label htmlFor="monthly">monthly</label>
-    </div>
+      <div>
+        <div className="option">
+          <input 
+            checked={selectedInterval === "daily"} 
+            className="option__input"
+            id="daily" 
+            name="sinceButton" 
+            onChange={handleOptionChange} 
+            type="radio" 
+            value="daily" 
+          />
+          <label className="option__label" htmlFor="daily">daily</label>
+        </div>
+        <div className="option">
+          <input 
+            checked={selectedInterval === "weekly"}
+            className="option__input"
+            id="weekly" 
+            name="sinceButton" 
+            onChange={handleOptionChange} 
+            type="radio" 
+            value="weekly" 
+          />
+          <label className="option__label" htmlFor="weekly">weekly</label>
+        </div>
+        <div className="option">
+          <input 
+            checked={selectedInterval === "monthly"} 
+            className="option__input"
+            id="monthly" 
+            name="sinceButton" 
+            onChange={handleOptionChange} 
+            type="radio" 
+            value="monthly" 
+          />
+          <label className="option__label" htmlFor="monthly">monthly</label>
+        </div>
+      </div>
     </section>
     <section className="optionsPanel__section">
-    <h3 className="section__title">language</h3>
-    <div>
-      <select value={selectedLanguage} onChange={handleLanguageChange}>
-      <option value="">all</option>
-        <option value="javascript">JavaScript</option>
-        <option value="python">Python</option>
-        <option value="java">Java</option>
-      </select>
-    </div>
+      <h3 className="section__title">language</h3>
+      <div>
+        <select className="section__select select" onChange={handleLanguageChange} value={selectedLanguage}>
+          <option className="section__option" value="">all</option>
+          <option className="section__option" value="javascript">JavaScript</option>
+          <option className="section__option" value="python">Python</option>
+          <option className="section__option" value="java">Java</option>
+        </select>
+      </div>
     </section>
     <section className="optionsPanel__section">
-    <h3 className="section__title">sort</h3>
-    <div>
-      <button onClick={sortByStars}>sort</button>
-    </div>
+      <h3 className="section__title">sort by stars</h3>
+      <div>
+        <button className="section__button" onClick={sortByStars}>&#8693;</button>
+      </div>
     </section>
   </div>  
 )
 
+OptionsPanel.propTypes = {
+  handleLanguageChange: PropTypes.func.isRequired, 
+  handleOptionChange: PropTypes.func.isRequired, 
+  selectedInterval: PropTypes.string.isRequired,
+  selectedLanguage: PropTypes.string.isRequired,
+  sortByStars: PropTypes.func.isRequired
+}
 
 export default OptionsPanel

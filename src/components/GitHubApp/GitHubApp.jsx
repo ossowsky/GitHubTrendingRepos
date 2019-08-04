@@ -1,9 +1,10 @@
 import React from 'react';
-import "./GitHubApp.scss";
+import PropTypes from 'prop-types';
+import { observer, inject } from "mobx-react";
 import RepoList from "../RepoList/RepoList";
 import OptionsPanelContainer from "../OptionsPanel/OptionsPanelContainer";
 import Header from "../Header/Header";
-import { observer, inject } from "mobx-react"
+import "./GitHubApp.scss";
 
 
 class GitHubApp extends React.Component {
@@ -28,5 +29,21 @@ class GitHubApp extends React.Component {
     )
   }
 }
+
+GitHubApp.propTypes = {
+  repos: PropTypes.arrayOf(
+    PropTypes.shape({
+      author: PropTypes.string,
+      description: PropTypes.string,
+      language: PropTypes.string,
+      name: PropTypes.string,
+      stars: PropTypes.number,
+      url: PropTypes.string,
+    })
+  ),
+  sortByStars: PropTypes.func.isRequired,
+  updateData: PropTypes.func.isRequired,
+}
+
 
 export default inject("store")(observer(GitHubApp))

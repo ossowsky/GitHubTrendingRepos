@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.scss';
+import { Provider } from "mobx-react";
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import store from "./ReposStore.js"
-import { Provider } from "mobx-react"
+import store from "./ReposStore.js";
+import './index.scss';
 
 
 ReactDOM.render(

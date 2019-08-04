@@ -8,14 +8,14 @@ const BASE_API_URL = "https://github-trending-api.now.sh/repositories?";
 
 class ReposStore {
   repos = [];
-  sortAsc = true;
   selectedInterval = "daily";
   selectedLanguage = "";
+  sortAsc = true;
 
   loadData = () => {
     axios.get(BASE_API_URL)
     .then(response => {
-      this.setData(response.data)
+      this.setData(this.prepareRepos(response.data))
     })
     .catch(error => {
       console.log(error)
@@ -30,7 +30,7 @@ class ReposStore {
     console.log(`Interval:  ${interval}, language:  ${language}`)
     fetchRepositories({ language: language, since: interval })
     .then(repositories => {
-      this.setData(repositories)
+      this.setData(this.prepareRepos(repositories))
     });
   } 
   
@@ -50,6 +50,17 @@ class ReposStore {
     this.sortAsc = !this.sortAsc;
     this.repos = sortedRepos;
   }
+
+  prepareRepos = (repos) => {
+    return repos = repos.map(repo => ({ 
+      author: repo.author, 
+      description: repo.description,
+      language: repo.language,
+      name: repo.name,
+      stars: repo.stars,
+      url: repo.url
+    }))
+  }
 }
 
 decorate(ReposStore, {
@@ -57,11 +68,12 @@ decorate(ReposStore, {
   selectedInterval: observable,
   selectedLanguage: observable,
   setData: action,
-  setLanguage: action,
   setInterval: action,
+  setLanguage: action,
   sortAsc: observable,
 });
 
 const store = window.store = new ReposStore()
+
 
 export default store

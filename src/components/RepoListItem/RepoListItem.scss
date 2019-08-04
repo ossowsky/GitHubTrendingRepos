@@ -1,29 +1,78 @@
 .repoListItem {
-  width: 100%;
   background-color: #333;
-  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid gray;
   display: flex;
   flex-direction: column;
-  border: 1px solid #f5f5f5;
-  margin-top: 5px;
   margin-bottom: 5px;
-  border-radius: 4px;
+  margin-top: 5px;
+  padding: 10px;
+  width: 100%;
   
   &__content {
     padding: 5px;
+
+    .content__description {
+      font-style: italic;
+    }
+
+    .content__link {
+      background: gray;
+      border-radius: 5px;
+      color: white;
+      display: block;
+      font-weight: 400;
+      height: 25px;
+      margin: 20px auto 0 auto;
+      text-align: center;
+      text-decoration: none;
+      width: 115px;
+
+      &:hover {
+        background-color: gold;
+        color:#000; 
+        cursor:pointer;
+        text-decoration: none; 
+      }
+    }
   }
 
   &__header {
-    padding: 5px;
     font-size: 20px;
     font-weight: bold;
+    padding: 5px;
   }
 
   &__footer {
-    padding: 5px;
     display: flex;
-    justify-content: space-between;
+    flex-basis: 33%;
     font-size: 15px;
     font-weight: 500;
+    padding: 5px;
+
+    .footer__star {
+      color: gold;
+      flex-basis: 33%;
+      font-size: 17px;
+      text-align: center;
+    }
+
+    .footer__author {
+      color: lightgrey;
+      flex-basis: 33%;
+      text-align: left;
+    }
+
+    .footer__language {
+      color: lightgrey;
+      flex-basis: 33%;
+      text-align: right;
+    }
+  }
+
+  .hr {
+    border: 1px solid gray;
+    margin: 10px auto;
+    width: 85%;
   }
 }
