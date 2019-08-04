@@ -1,11 +1,11 @@
-$base-background-color: #444;
-$base-color: #fff;
+@import "../../shared/styles/styles";
+@import "../../shared//styles/variables";
 
 
 .app {
   align-items: center;
-  background-color: $base-background-color;
-  color: $base-color;
+  background-color: map-get($colors, tundora);
+  color: map-get($colors, white);
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -13,24 +13,24 @@ $base-color: #fff;
   &__header {
     flex-direction: row;
     justify-content: center;
-    padding: 10px;
+    padding: $padding-medium;
     text-align: center;
     width: 60%;
   }
 
   &__repoList {
-    padding: 10px;
+    padding:  $padding-medium;
     width: 60%;
   }
 
   &__options {
-    padding: 10px;
+    padding:  $padding-medium;
     width: 60%;
   }
 
   &__footer {
-    border-top: 1px solid #f5f5f5;
-    padding: 15px;
+    border-top: 1px solid map-get($colors, wild-sand);
+    padding: $padding-big;
     text-align: center;
     width: 80%;
   }

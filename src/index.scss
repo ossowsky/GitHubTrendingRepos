@@ -1,10 +1,15 @@
+@import "./shared/styles/styles";
+@import "./shared/styles/variables";
+
+
 * {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+  margin: $margin-zero;
+  padding: $padding-zero;
 }
 
 body {
+  background-color: map-get($colors, tundora);
   font-family: -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;

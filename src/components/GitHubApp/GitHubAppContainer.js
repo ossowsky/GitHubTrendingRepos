@@ -38,5 +38,4 @@ GitHubAppContainer.propTypes = {
 }
 
 
-
 export default inject("store")(observer(GitHubAppContainer))

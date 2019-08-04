@@ -1,6 +1,9 @@
+@import "../../shared/styles/variables";
+
+
 .hgroup {
   &__h1{
-    font-size: 40px;
+    font-size: $font-size-large;
   }
 
   &__h3{

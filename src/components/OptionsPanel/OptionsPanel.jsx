@@ -6,6 +6,7 @@ import "./OptionsPanel.scss";
 const OptionsPanel = ({ 
   handleLanguageChange, 
   handleOptionChange, 
+  languages,
   selectedInterval, 
   selectedLanguage, 
   sortByStars 
@@ -56,10 +57,9 @@ const OptionsPanel = ({
       <h3 className="section__title">language</h3>
       <div>
         <select className="section__select select" onChange={handleLanguageChange} value={selectedLanguage}>
-          <option className="section__option" value="">all</option>
-          <option className="section__option" value="javascript">JavaScript</option>
-          <option className="section__option" value="python">Python</option>
-          <option className="section__option" value="java">Java</option>
+        {languages && languages.map(({ id, name }) =>
+          <option className="section__option" key={id} value={id}>{name}</option>
+        )}
         </select>
       </div>
     </section>
@@ -74,7 +74,13 @@ const OptionsPanel = ({
 
 OptionsPanel.propTypes = {
   handleLanguageChange: PropTypes.func, 
-  handleOptionChange: PropTypes.func, 
+  handleOptionChange: PropTypes.func,
+  languages: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string,
+      name: PropTypes.string
+    })
+  ), 
   selectedInterval: PropTypes.string,
   selectedLanguage: PropTypes.string,
   sortByStars: PropTypes.func
