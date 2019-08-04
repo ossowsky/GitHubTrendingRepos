@@ -16,7 +16,7 @@ const OptionsPanel = ({
       <div>
         <div className="option">
           <input 
-            checked={selectedInterval === "daily"} 
+            defaultChecked={selectedInterval === "daily"} 
             className="option__input"
             id="daily" 
             name="sinceButton" 
@@ -28,7 +28,7 @@ const OptionsPanel = ({
         </div>
         <div className="option">
           <input 
-            checked={selectedInterval === "weekly"}
+            defaultChecked={selectedInterval === "weekly"}
             className="option__input"
             id="weekly" 
             name="sinceButton" 
@@ -40,7 +40,7 @@ const OptionsPanel = ({
         </div>
         <div className="option">
           <input 
-            checked={selectedInterval === "monthly"} 
+            defaultChecked={selectedInterval === "monthly"} 
             className="option__input"
             id="monthly" 
             name="sinceButton" 
@@ -73,11 +73,12 @@ const OptionsPanel = ({
 )
 
 OptionsPanel.propTypes = {
-  handleLanguageChange: PropTypes.func.isRequired, 
-  handleOptionChange: PropTypes.func.isRequired, 
-  selectedInterval: PropTypes.string.isRequired,
-  selectedLanguage: PropTypes.string.isRequired,
-  sortByStars: PropTypes.func.isRequired
+  handleLanguageChange: PropTypes.func, 
+  handleOptionChange: PropTypes.func, 
+  selectedInterval: PropTypes.string,
+  selectedLanguage: PropTypes.string,
+  sortByStars: PropTypes.func
 }
+
 
 export default OptionsPanel

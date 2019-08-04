@@ -36,9 +36,10 @@ OptionsPanelContainer.defaultProps = {
 }
 
 OptionsPanelContainer.propTypes = {
-  sortByStars: PropTypes.func.isRequired,
+  sortByStars: PropTypes.func,
   selectedInterval: PropTypes.string.isRequired,
   selectedLanguage: PropTypes.string.isRequired,
 }
+
 
 export default inject("store")(observer(OptionsPanelContainer))

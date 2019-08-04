@@ -41,8 +41,8 @@ GitHubApp.propTypes = {
       url: PropTypes.string,
     })
   ),
-  sortByStars: PropTypes.func.isRequired,
-  updateData: PropTypes.func.isRequired,
+  sortByStars: PropTypes.func,
+  updateData: PropTypes.func,
 }
 
 

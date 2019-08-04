@@ -1,15 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
-import { Provider } from "mobx-react";
-import store from "./ReposStore"
+import RepoListItem from './RepoListItem';
 
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(
-    <Provider store={store}>
-      <App />
-    </Provider>, div);
+  ReactDOM.render(<RepoListItem />, div);
   ReactDOM.unmountComponentAtNode(div);
 });

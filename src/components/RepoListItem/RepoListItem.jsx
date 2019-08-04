@@ -32,12 +32,12 @@ RepoListItem.defaultProps = {
 }
 
 RepoListItem.propTypes = {
-  author: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  language: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  stars: PropTypes.number.isRequired,
-  url: PropTypes.string.isRequired
+  author: PropTypes.string,
+  description: PropTypes.string,
+  language: PropTypes.string,
+  name: PropTypes.string,
+  stars: PropTypes.number,
+  url: PropTypes.string
 }
 
 

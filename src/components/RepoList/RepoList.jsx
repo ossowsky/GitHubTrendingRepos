@@ -8,7 +8,7 @@ import "./RepoList.scss";
 const RepoList = ({ repos }) => (
   <div className="repoList">
     <ul className="repoList__list">
-    {repos.map(({ author, description, language, name, stars, url }) => 
+    {repos && repos.map(({ author, description, language, name, stars, url }) => 
       <li className="list__item" key={url}>
         <RepoListItem 
           author={author} 
