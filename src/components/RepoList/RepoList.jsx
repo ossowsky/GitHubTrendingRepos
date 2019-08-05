@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { observer, inject } from "mobx-react"
-import RepoListItem from "../RepoListItem/RepoListItem";
-import withLoader from "../../HOC/withLoader/withLoader";
+import RepoListItem from "../RepoListItem";
+import withLoader from "../../HOC/withLoader";
 import "./RepoList.scss";
 
 
 const RepoList = ({ repos }) => (
-  <div className="repoList">
-    <ul className="repoList__list">
+  <div className="repo-list">
+    <ul className="repo-list__list">
     {repos && repos.map(({ author, description, language, name, stars, url }) => 
       <li className="list__item" key={url}>
         <RepoListItem 

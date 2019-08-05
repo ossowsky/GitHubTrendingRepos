@@ -1,11 +1,11 @@
-@import "../../shared/styles/styles";
-@import "../../shared/styles/variables";
+@import '../../shared/styles/styles';
+@import '../../shared/styles/variables';
 
 
 .error {
   color: map-get($colors, red);
   font-weight: $font-weight-bold;
-  margin: $margin-medium auto $margin-zero auto;
+  margin: $margin-medium auto $margin-zero;
   text-align: center;
 
   &__emoji {

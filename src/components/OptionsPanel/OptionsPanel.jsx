@@ -11,8 +11,8 @@ const OptionsPanel = ({
   selectedLanguage, 
   sortByStars 
 }) => (
-  <div className="optionsPanel">
-    <section className="optionsPanel__section">
+  <div className="options-panel">
+    <section className="options-panel__section">
       <h3 className="section__title">interval</h3>
       <div className="section__radio-buttons">
         <div className="section__radio-button">
@@ -37,7 +37,7 @@ const OptionsPanel = ({
             type="radio" 
             value="weekly" 
           />
-          <label className="option__label" htmlFor="weekly">weekly</label>
+          <label className="section__label" htmlFor="weekly">weekly</label>
         </div>
         <div className="section__radio-button">
           <input 
@@ -49,11 +49,11 @@ const OptionsPanel = ({
             type="radio" 
             value="monthly" 
           />
-          <label className="option__label" htmlFor="monthly">monthly</label>
+          <label className="section__label" htmlFor="monthly">monthly</label>
         </div>
       </div>
     </section>
-    <section className="optionsPanel__section">
+    <section className="options-panel__section">
       <h3 className="section__title">language</h3>
       <div>
         <select className="section__select" onChange={handleLanguageChange} value={selectedLanguage}>
@@ -63,7 +63,7 @@ const OptionsPanel = ({
         </select>
       </div>
     </section>
-    <section className="optionsPanel__section">
+    <section className="options-panel__section">
       <h3 className="section__title">sort by stars</h3>
       <div>
         <button className="section__button" onClick={sortByStars}>&#8693;</button>

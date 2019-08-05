@@ -46,6 +46,7 @@
     ]
   },
   "devDependencies": {
-    "babel-preset-mobx": "^2.0.0"
+    "babel-preset-mobx": "^2.0.0",
+    "sass-lint": "^1.13.1"
   }
 }

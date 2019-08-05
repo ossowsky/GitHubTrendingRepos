@@ -1,12 +1,12 @@
-@import "../../shared/styles/variables";
+@import '../../shared/styles/variables';
 
 
 .hgroup {
-  &__h1{
+  &__h1 {
     font-size: $font-size-large;
   }
 
-  &__h3{
+  &__h3 {
     letter-spacing: 2px;
   }
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import GitHubAppContainer from './components/GitHubApp/GitHubAppContainer';
+import GitHubAppContainer from './components/GitHubApp';
 
 
 const App = () => <GitHubAppContainer />

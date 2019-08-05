@@ -1,12 +1,12 @@
-@import "../../shared/styles/styles";
-@import "../../shared/styles/variables";
+@import '../../shared/styles/styles';
+@import '../../shared/styles/variables';
 
 
-.optionsPanel {
+.options-panel {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  padding:  $padding-medium;
+  padding: $padding-medium;
 
   &__section {
     align-items: center;
@@ -22,8 +22,8 @@
     .section__button {
       align-items: center;
       background-color: map-get($colors, white);
-      border-radius: 4px;
       border: 0 none;
+      border-radius: 4px;
       color: map-get($colors, mine-shaft);
       cursor: pointer;
       display: flex;
@@ -44,18 +44,18 @@
 
     .section__select {
       align-items: center;
-      border-radius: 4px;
       border: 0 none;
+      border-radius: 4px;
       color: map-get($colors, mine-shaft);
       cursor: pointer;
       display: flex;
       font-size: $font-size-small;
       font-weight: $font-weight-bold;
       justify-content: center;
-      padding:  $padding-small  $padding-medium;
+      min-width: 273px;
+      padding: $padding-small  $padding-medium;
       text-align: center;
       transition: all 150ms linear;
-      min-width: 273px;
 
       &:hover {
         background-color: map-get($colors, gold);
@@ -75,14 +75,14 @@
 
       .section__input {
         cursor: pointer;
-        margin-right: 5px;
+        margin-right: $margin-small;
       }
 
       .section__label {
         font-size: $font-size-small;
 
         &:hover {
-          color:  map-get($colors, gold);
+          color: map-get($colors, gold);
           cursor: pointer;
         }
       }
@@ -91,19 +91,19 @@
 }
 
 
-@media (max-width: 992px) { 
-  .optionsPanel {
+@media (max-width: 992px) {
+  .options-panel {
     flex-direction: column;
 
     &__section {
-      padding-bottom: 25px;
+      padding-bottom: $padding-large;
 
       .section__radio-buttons {
         display: flex;
+      }
 
-        .section__radio-button {
-          padding: 10px;
-        }
+      .section__radio-button {
+        padding: $padding-medium;
       }
     }
   }

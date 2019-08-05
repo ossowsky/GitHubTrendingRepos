@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { observer, inject } from "mobx-react";
-import RepoList from "../RepoList/RepoList";
-import OptionsPanelContainer from "../OptionsPanel/OptionsPanelContainer";
-import Header from "../Header/Header";
+import RepoList from "../RepoList";
+import OptionsPanelContainer from "../OptionsPanel";
+import Header from "../Header";
 import "./GitHubApp.scss";
 
 

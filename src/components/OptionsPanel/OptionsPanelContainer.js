@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { observer, inject } from "mobx-react";
 import OptionsPanel from "./OptionsPanel";
-import withError from "../../HOC/withError/withError";
+import withError from "../../HOC/withError";
 
 
 class OptionsPanelContainer extends Component {
