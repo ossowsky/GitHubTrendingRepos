@@ -20,18 +20,18 @@ class ReposStore {
   loadData = () => {
     axios.get(`${BASE_API_URL}repositories?`)
     .then(response => {
-      this.setData(this.prepareRepos(response.data))
+      this.setData(this.prepareRepos(response.data));
     })
     .catch(error => {
       console.log(error)
-      this.setError()
+      this.setError();
     })
   }
 
   updateData = (interval, language) => {
     fetchRepositories({ language: language, since: interval })
     .then(repositories => {
-      this.setData(this.prepareRepos(repositories))
+      this.setData(this.prepareRepos(repositories));
     })
   }
   
@@ -42,11 +42,11 @@ class ReposStore {
     })
     .catch(error => {
       console.log(error)
-      this.setError()
+      this.setError();
     })
   }
 
-  setAllLanguages = languages => this.languages = [...this.languages, ...languages]
+  setAllLanguages = languages => this.languages = [...this.languages, ...languages];
 
   setData = data => {
     this.repos = data;
@@ -97,7 +97,7 @@ decorate(ReposStore, {
   sortAsc: observable,
 });
 
-const store = new ReposStore()
+const store = new ReposStore();
 
 
-export default store
+export default store;

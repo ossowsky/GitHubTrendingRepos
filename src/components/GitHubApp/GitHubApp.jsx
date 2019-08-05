@@ -7,28 +7,22 @@ import Header from "../Header";
 import "./GitHubApp.scss";
 
 
-class GitHubApp extends React.Component {
-  render() {
-    const { languages, repos, sortByStars, updateData } = this.props
-
-    return (
-      <div className="app">
-        <header className="app__header">
-          <Header />
-        </header>
-        <div className="app__options">
-          <OptionsPanelContainer languages={languages} repos={repos} sortByStars={sortByStars} updateData={updateData}/>
-        </div>
-        <main className="app__repoList">
-          <RepoList repos={repos } />
-        </main>
-        <footer className="app__footer">
-          <p>&copy; ossowsky</p>
-        </footer>
-      </div>
-    )
-  }
-}
+const GitHubApp = ({ languages, repos, sortByStars, updateData }) => (
+  <div className="app">
+    <header className="app__header">
+      <Header />
+    </header>
+    <div className="app__options-panel">
+      <OptionsPanelContainer languages={languages} repos={repos} sortByStars={sortByStars} updateData={updateData}/>
+    </div>
+    <main className="app__repo-list">
+      <RepoList repos={repos } />
+    </main>
+    <footer className="app__footer">
+      <p>&copy; 2019 ossowsky</p>
+    </footer>
+  </div>
+)
 
 GitHubApp.propTypes = {
   repos: PropTypes.arrayOf(

@@ -55,19 +55,15 @@ const OptionsPanel = ({
     </section>
     <section className="options-panel__section">
       <h3 className="section__title">language</h3>
-      <div>
-        <select className="section__select" onChange={handleLanguageChange} value={selectedLanguage}>
-        {languages && languages.map(({ urlParam, name }) =>
-          <option className="section__option" key={urlParam} value={urlParam}>{name}</option>
-        )}
-        </select>
-      </div>
+      <select className="section__select" onChange={handleLanguageChange} value={selectedLanguage}>
+      {languages && languages.map(({ urlParam, name }) =>
+        <option className="section__option" key={urlParam} value={urlParam}>{name}</option>
+      )}
+      </select>
     </section>
     <section className="options-panel__section">
       <h3 className="section__title">sort by stars</h3>
-      <div>
-        <button className="section__button" onClick={sortByStars}>&#8693;</button>
-      </div>
+      <button className="section__button" onClick={sortByStars}>&#8693;</button>
     </section>
   </div>  
 )

@@ -18,18 +18,20 @@
     width: 60%;
   }
 
-  &__repoList {
+  &__repo-list {
     padding:  $padding-medium;
     width: 60%;
   }
 
-  &__options {
+  &__options-panel {
     padding:  $padding-medium;
     width: 60%;
   }
 
   &__footer {
     border-top: 1px solid map-get($colors, wild-sand);
+    color: map-get($colors, light-gray);
+    font-weight: $font-weight-medium;
     padding: $padding-big;
     text-align: center;
     width: 80%;
@@ -40,8 +42,8 @@
 @media (max-width: 992px) {
   .app__footer,
   .app__header,
-  .app__options,
-  .app__repoList {
+  .app__options-panel,
+  .app__repo-list {
     width: 75%;
   }
 }
@@ -49,8 +51,8 @@
 @media (max-width: 768px) {
   .app__footer,
   .app__header,
-  .app__options,
-  .app__repoList {
+  .app__options-panel,
+  .app__repo-list {
     width: 90%;
   }
 }
