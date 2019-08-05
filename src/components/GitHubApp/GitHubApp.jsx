@@ -9,7 +9,7 @@ import "./GitHubApp.scss";
 
 class GitHubApp extends React.Component {
   render() {
-    const {  repos, sortByStars, updateData } = this.props
+    const { languages, repos, sortByStars, updateData } = this.props
 
     return (
       <div className="app">
@@ -17,7 +17,7 @@ class GitHubApp extends React.Component {
           <Header />
         </header>
         <div className="app__options">
-          <OptionsPanelContainer repos={repos} sortByStars={sortByStars} updateData={updateData}/>
+          <OptionsPanelContainer languages={languages} repos={repos} sortByStars={sortByStars} updateData={updateData}/>
         </div>
         <main className="app__repoList">
           <RepoList repos={repos } />

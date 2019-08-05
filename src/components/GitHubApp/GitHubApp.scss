@@ -35,3 +35,22 @@
     width: 80%;
   }
 }
+
+
+@media (max-width: 992px) {
+  .app__footer,
+  .app__header,
+  .app__options,
+  .app__repoList {
+    width: 75%;
+  }
+}
+
+@media (max-width: 768px) {
+  .app__footer,
+  .app__header,
+  .app__options,
+  .app__repoList {
+    width: 90%;
+  }
+}

@@ -13,80 +13,98 @@
     display: flex;
     flex-direction: column;
     padding:  $padding-small;
-  }
-}
 
-.section__title {
-  padding-bottom: $padding-medium;
-  text-transform: uppercase;
-}
+    .section__title {
+      padding-bottom: $padding-medium;
+      text-transform: uppercase;
+    }
 
-
-.section__button {
-  align-items: center;
-  background-color: map-get($colors, white);
-  border-radius: 4px;
-  border: 0 none;
-  color: map-get($colors, mine-shaft);
-  cursor: pointer;
-  display: flex;
-  font-size: $font-size-small;
-  font-weight: $font-weight-bold;
-  justify-content: center;
-  padding:  $padding-small  $padding-large;
-  text-align: center;
-  text-transform: uppercase;
-  transition: all 150ms linear;
-
-  &:hover {
-    background-color: map-get($colors, gold);
-    opacity: .85;
-    transition: all 150ms linear;
-  }
-}
-
-.section__select {
-  align-items: center;
-  border-radius: 4px;
-  border: 0 none;
-  color: map-get($colors, mine-shaft);
-  cursor: pointer;
-  display: flex;
-  font-size: $font-size-small;
-  font-weight: $font-weight-bold;
-  justify-content: center;
-  padding:  $padding-small  $padding-medium;
-  text-align: center;
-  transition: all 150ms linear;
-
-  &:hover {
-    background-color: map-get($colors, gold);
-    opacity: .85;
-    transition: all 150ms linear;
-  }
-  
-  .section__option:hover {
-    background-color: map-get($colors, white);
-  }
-}
-
-
-.option {
-  font-size: $font-size-small;
-  font-weight: $font-weight-bold;
-  padding:  $padding-small  $padding-zero;
-
-  &__input {
-    cursor: pointer;
-    margin-right: 5px;
-  }
-
-  &__label {
-    font-size: $font-size-small;
-    
-    &:hover {
-      color:  map-get($colors, gold);
+    .section__button {
+      align-items: center;
+      background-color: map-get($colors, white);
+      border-radius: 4px;
+      border: 0 none;
+      color: map-get($colors, mine-shaft);
       cursor: pointer;
+      display: flex;
+      font-size: $font-size-small;
+      font-weight: $font-weight-bold;
+      justify-content: center;
+      padding:  $padding-small  $padding-large;
+      text-align: center;
+      text-transform: uppercase;
+      transition: all 150ms linear;
+
+      &:hover {
+        background-color: map-get($colors, gold);
+        opacity: .85;
+        transition: all 150ms linear;
+      }
+    }
+
+    .section__select {
+      align-items: center;
+      border-radius: 4px;
+      border: 0 none;
+      color: map-get($colors, mine-shaft);
+      cursor: pointer;
+      display: flex;
+      font-size: $font-size-small;
+      font-weight: $font-weight-bold;
+      justify-content: center;
+      padding:  $padding-small  $padding-medium;
+      text-align: center;
+      transition: all 150ms linear;
+      min-width: 273px;
+
+      &:hover {
+        background-color: map-get($colors, gold);
+        opacity: .85;
+        transition: all 150ms linear;
+      }
+
+      .section__option:hover {
+        background-color: map-get($colors, white);
+      }
+    }
+
+    .section__radio-button {
+      font-size: $font-size-small;
+      font-weight: $font-weight-bold;
+      padding: $padding-small $padding-zero;
+
+      .section__input {
+        cursor: pointer;
+        margin-right: 5px;
+      }
+
+      .section__label {
+        font-size: $font-size-small;
+
+        &:hover {
+          color:  map-get($colors, gold);
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+
+@media (max-width: 992px) { 
+  .optionsPanel {
+    flex-direction: column;
+
+    &__section {
+      padding-bottom: 25px;
+
+      .section__radio-buttons {
+        display: flex;
+
+        .section__radio-button {
+          padding: 10px;
+        }
+      }
     }
   }
 }

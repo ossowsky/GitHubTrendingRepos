@@ -14,23 +14,23 @@ const OptionsPanel = ({
   <div className="optionsPanel">
     <section className="optionsPanel__section">
       <h3 className="section__title">interval</h3>
-      <div>
-        <div className="option">
+      <div className="section__radio-buttons">
+        <div className="section__radio-button">
           <input 
             defaultChecked={selectedInterval === "daily"} 
-            className="option__input"
+            className="section__input"
             id="daily" 
             name="sinceButton" 
             onChange={handleOptionChange} 
             type="radio" 
             value="daily" 
           />
-          <label className="option__label" htmlFor="daily">daily</label>
+          <label className="section__label" htmlFor="daily">daily</label>
         </div>
-        <div className="option">
+        <div className="section__radio-button">
           <input 
             defaultChecked={selectedInterval === "weekly"}
-            className="option__input"
+            className="section__input"
             id="weekly" 
             name="sinceButton" 
             onChange={handleOptionChange} 
@@ -39,10 +39,10 @@ const OptionsPanel = ({
           />
           <label className="option__label" htmlFor="weekly">weekly</label>
         </div>
-        <div className="option">
+        <div className="section__radio-button">
           <input 
             defaultChecked={selectedInterval === "monthly"} 
-            className="option__input"
+            className="section__input"
             id="monthly" 
             name="sinceButton" 
             onChange={handleOptionChange} 
@@ -56,9 +56,9 @@ const OptionsPanel = ({
     <section className="optionsPanel__section">
       <h3 className="section__title">language</h3>
       <div>
-        <select className="section__select select" onChange={handleLanguageChange} value={selectedLanguage}>
-        {languages && languages.map(({ id, name }) =>
-          <option className="section__option" key={id} value={id}>{name}</option>
+        <select className="section__select" onChange={handleLanguageChange} value={selectedLanguage}>
+        {languages && languages.map(({ urlParam, name }) =>
+          <option className="section__option" key={urlParam} value={urlParam}>{name}</option>
         )}
         </select>
       </div>

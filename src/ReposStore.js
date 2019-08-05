@@ -3,32 +3,22 @@ import { action, observable, decorate } from "mobx";
 import { fetchRepositories } from '@huchenme/github-trending';
 
 
-const BASE_API_URL = "https://github-trending-api.now.sh/repositories?";
-
+const BASE_API_URL = "https://github-trending-api.now.sh/";
 
 class ReposStore {
   isError = null;
   isLoading = true;
+  languages = [{ 
+    name: "all", 
+    urlParam: ""
+  }];
   repos = [];
   selectedInterval = "daily";
   selectedLanguage = "";
   sortAsc = true;
-  languages = [{
-    id: "",
-    name: "all"
-  }, {
-    id: "python",
-    name: "Python"
-  }, {
-    id: "javascript",
-    name: "JavaScript"
-  }, {
-    id: "java",
-    name: "Java"
-  }];
 
   loadData = () => {
-    axios.get(BASE_API_URL)
+    axios.get(`${BASE_API_URL}repositories?`)
     .then(response => {
       this.setData(this.prepareRepos(response.data))
     })
@@ -45,6 +35,19 @@ class ReposStore {
     })
   }
   
+  getAllLanguages = () => {
+    axios.get(`${BASE_API_URL}languages`)
+    .then(response => {
+      this.setAllLanguages(response.data)
+    })
+    .catch(error => {
+      console.log(error)
+      this.setError()
+    })
+  }
+
+  setAllLanguages = languages => this.languages = [...this.languages, ...languages]
+
   setData = data => {
     this.repos = data;
     this.isLoading = false;
@@ -87,13 +90,14 @@ decorate(ReposStore, {
   repos: observable,
   selectedInterval: observable,
   selectedLanguage: observable,
+  setAllLanguages: observable,
   setData: action,
   setInterval: action,
   setLanguage: action,
-  sortAsc: observable
+  sortAsc: observable,
 });
 
-const store = window.store = new ReposStore()
+const store = new ReposStore()
 
 
 export default store

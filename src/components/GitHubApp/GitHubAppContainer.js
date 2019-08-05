@@ -7,13 +7,14 @@ import { observer, inject } from "mobx-react";
 class GitHubAppContainer extends Component {
   componentDidMount() {
     this.props.store.loadData();
+    this.props.store.getAllLanguages()
   }
 
   render() {
-    const { repos, sortByStars, updateData } = this.props.store;
+    const { languages, repos, sortByStars, updateData } = this.props.store;
 
     return (
-      <GitHubApp repos={repos} sortByStars={sortByStars} updateData={updateData} />
+      <GitHubApp languages={languages} repos={repos} sortByStars={sortByStars} updateData={updateData} />
     )
   }
 }
@@ -23,6 +24,12 @@ GitHubAppContainer.defaultProps = {
 }
 
 GitHubAppContainer.propTypes = {
+  languages: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string,
+      urlParam: PropTypes.string
+    }).isRequired
+  ),
   repos: PropTypes.arrayOf(
     PropTypes.shape({
       author: PropTypes.string,

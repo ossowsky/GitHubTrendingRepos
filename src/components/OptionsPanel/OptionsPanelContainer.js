@@ -1,21 +1,25 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import OptionsPanel from "./OptionsPanel";
 import { observer, inject } from "mobx-react";
+import OptionsPanel from "./OptionsPanel";
 import withError from "../../HOC/withError/withError";
 
 
 class OptionsPanelContainer extends Component {
   handleOptionChange = (e) => {
-    this.props.store.setInterval(e.target.value);
+    const { setInterval, selectedLanguage, updateData } = this.props.store
+
+    setInterval(e.target.value);
     this.props.store.isLoading = true;
-    this.props.store.updateData(e.target.value, this.props.store.selectedLanguage);
+    updateData(e.target.value, selectedLanguage);
   }
 
   handleLanguageChange = (e) => {
-    this.props.store.setLanguage(e.target.value);
+    const { setLanguage, selectedInterval, updateData } = this.props.store
+
+    setLanguage(e.target.value);
     this.props.store.isLoading = true;
-    this.props.store.updateData(this.props.store.selectedInterval, e.target.value);
+    updateData(selectedInterval, e.target.value);
   }
 
   render() {

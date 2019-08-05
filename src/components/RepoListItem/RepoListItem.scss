@@ -11,7 +11,7 @@
   margin: $margin-small $margin-zero;
   padding:  $padding-medium;
   width: 100%;
-  
+
   &__content {
     padding:  $padding-small;
 
@@ -48,7 +48,6 @@
 
   &__footer {
     display: flex;
-    flex-basis: 33%;
     font-size: $font-size-extra-small;
     font-weight: $font-weight-medium;
     padding:  $padding-small;
@@ -77,5 +76,34 @@
     border: 1px solid map-get($colors, gray);
     margin: $margin-medium auto;
     width: 85%;
+  }
+}
+
+
+@media (max-width: 576px) {
+  .repoListItem__header {
+    display: flex;
+    justify-content: center;
+  }
+
+  .content__description {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .repoListItem__footer {
+    flex-basis: 100%;
+    flex-direction: column;
+    justify-content: center;
+  }  
+
+  .footer__author,
+  .footer__star,
+  .footer__language {
+    display: flex;
+    justify-content: center;
+    padding: 5px 0;
+    text-align: center;
   }
 }
