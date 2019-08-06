@@ -13,16 +13,15 @@ class ReposStore {
     urlParam: ""
   }];
   repos = [];
-  selectedInterval = (sessionStorage.getItem('gitHubFilters') !== null) ? (JSON.parse((sessionStorage.getItem("gitHubFilters")))).interval : "daily";
-  selectedLanguage = (sessionStorage.getItem('gitHubFilters') !== null) ? (JSON.parse((sessionStorage.getItem("gitHubFilters")))).language : "";
-  //selectedInterval = this.getDataFromFilters("interval") || "daily";
-  //selectedLanguage = this.getDataFromFilters("language") || "";
+  selectedInterval = (sessionStorage.getItem('gitHubFilters') !== null) ? (JSON.parse(sessionStorage.getItem("gitHubFilters"))).interval : "daily";
+  selectedLanguage = (sessionStorage.getItem('gitHubFilters') !== null) ? (JSON.parse(sessionStorage.getItem("gitHubFilters"))).language : "";
   sortAsc = true;
 
   loadData = () => {
     if (sessionStorage.getItem('gitHubFilters') !== null) {
-      let language = (JSON.parse((sessionStorage.getItem("gitHubFilters")))).language;
-      let interval = (JSON.parse((sessionStorage.getItem("gitHubFilters")))).interval;
+      const gitHubFilters = JSON.parse(sessionStorage.getItem("gitHubFilters"));
+      const language = gitHubFilters.language;
+      const interval = gitHubFilters.interval;
 
       fetchRepositories({ language: language, since: interval })
       .then(repositories => {
@@ -70,13 +69,6 @@ class ReposStore {
     "gitHubFilters", 
     JSON.stringify({ interval: this.selectedInterval, language: this.selectedLanguage })
   )
-
-  // getDataFromFilters = (data) => {
-  //   if (sessionStorage.getItem('gitHubFilters') !== null) {
-  //     return (JSON.parse((sessionStorage.getItem("gitHubFilters"))))[data]
-  //   } 
-  //   else return false
-  // }
 
   setError = () => {
     this.isError = true;
