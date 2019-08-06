@@ -71,13 +71,12 @@ class ReposStore {
     JSON.stringify({ interval: this.selectedInterval, language: this.selectedLanguage })
   )
 
-  getDataFromFilters = (data) => {
-    //const dupa = JSON.parse((sessionStorage.getItem("gitHubFilters")))
-    if (sessionStorage.getItem('gitHubFilters') !== null) {
-      return (JSON.parse((sessionStorage.getItem("gitHubFilters"))))[data]
-    } 
-    else return false
-  }
+  // getDataFromFilters = (data) => {
+  //   if (sessionStorage.getItem('gitHubFilters') !== null) {
+  //     return (JSON.parse((sessionStorage.getItem("gitHubFilters"))))[data]
+  //   } 
+  //   else return false
+  // }
 
   setError = () => {
     this.isError = true;
@@ -130,7 +129,7 @@ decorate(ReposStore, {
   sortAsc: observable
 });
 
-const store = window.store = new ReposStore();
+const store = new ReposStore();
 
 
 export default store;
