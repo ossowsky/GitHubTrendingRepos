@@ -7,16 +7,16 @@ import Header from "../Header";
 import "./GitHubApp.scss";
 
 
-const GitHubApp = ({ languages, repos, sortByStars, updateData }) => (
+const GitHubApp = ({ languages, repos, updateData }) => (
   <div className="app">
     <header className="app__header">
       <Header />
     </header>
     <div className="app__options-panel">
-      <OptionsPanelContainer languages={languages} repos={repos} sortByStars={sortByStars} updateData={updateData}/>
+      <OptionsPanelContainer languages={languages} repos={repos} updateData={updateData} />
     </div>
     <main className="app__repo-list">
-      <RepoList repos={repos } />
+      <RepoList repos={repos} />
     </main>
     <footer className="app__footer">
       <p>&copy; 2019 ossowsky</p>
@@ -35,7 +35,6 @@ GitHubApp.propTypes = {
       url: PropTypes.string,
     })
   ),
-  sortByStars: PropTypes.func,
   updateData: PropTypes.func,
 }
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import "./OptionsPanel.scss";
+import { observer, inject } from "mobx-react";
 
 
 const OptionsPanel = ({ 
@@ -83,4 +84,5 @@ OptionsPanel.propTypes = {
 }
 
 
-export default OptionsPanel
+//export default OptionsPanel
+export default inject("store")(observer(OptionsPanel))

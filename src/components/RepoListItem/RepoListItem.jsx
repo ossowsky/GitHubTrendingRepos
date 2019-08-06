@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { observer, inject } from "mobx-react";
 import "./RepoListItem.scss";
 
 
@@ -41,4 +42,4 @@ RepoListItem.propTypes = {
 }
 
 
-export default RepoListItem
+export default inject("store")(observer(RepoListItem))
