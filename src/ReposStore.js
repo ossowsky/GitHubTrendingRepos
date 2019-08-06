@@ -13,19 +13,32 @@ class ReposStore {
     urlParam: ""
   }];
   repos = [];
-  selectedInterval = "daily";
-  selectedLanguage = "";
+  selectedInterval = (sessionStorage.getItem('gitHubFilters') !== null) ? (JSON.parse((sessionStorage.getItem("gitHubFilters")))).interval : "daily";
+  selectedLanguage = (sessionStorage.getItem('gitHubFilters') !== null) ? (JSON.parse((sessionStorage.getItem("gitHubFilters")))).language : "";
+  //selectedInterval = this.getDataFromFilters("interval") || "daily";
+  //selectedLanguage = this.getDataFromFilters("language") || "";
   sortAsc = true;
 
   loadData = () => {
-    axios.get(`${BASE_API_URL}repositories?`)
-    .then(response => {
-      this.setData(this.prepareRepos(response.data));
-    })
-    .catch(error => {
-      console.log(error)
-      this.setError();
-    })
+    if (sessionStorage.getItem('gitHubFilters') !== null) {
+      let language = (JSON.parse((sessionStorage.getItem("gitHubFilters")))).language;
+      let interval = (JSON.parse((sessionStorage.getItem("gitHubFilters")))).interval;
+
+      fetchRepositories({ language: language, since: interval })
+      .then(repositories => {
+        this.setData(this.prepareRepos(repositories));
+      })
+    }
+    else {
+      axios.get(`${BASE_API_URL}repositories?`)
+      .then(response => {
+        this.setData(this.prepareRepos(response.data));
+      })
+      .catch(error => {
+        console.log(error)
+        this.setError();
+      })
+    }
   }
 
   updateData = (interval, language) => {
@@ -53,14 +66,33 @@ class ReposStore {
     this.isLoading = false;
   }
   
+  saveFilters = () => sessionStorage.setItem(
+    "gitHubFilters", 
+    JSON.stringify({ interval: this.selectedInterval, language: this.selectedLanguage })
+  )
+
+  getDataFromFilters = (data) => {
+    //const dupa = JSON.parse((sessionStorage.getItem("gitHubFilters")))
+    if (sessionStorage.getItem('gitHubFilters') !== null) {
+      return (JSON.parse((sessionStorage.getItem("gitHubFilters"))))[data]
+    } 
+    else return false
+  }
+
   setError = () => {
     this.isError = true;
     this.isLoading = false;
   }
 
-  setLanguage = language => this.selectedLanguage = language;
+  setLanguage = language => {
+    this.selectedLanguage = language;
+    this.saveFilters();
+  }
 
-  setInterval = interval => this.selectedInterval = interval;
+  setInterval = interval => {
+    this.selectedInterval = interval;
+    this.saveFilters();
+  }
 
   sortByStars = () => {
     const sortedRepos = this.repos.sort((repo1, repo2) => (
@@ -84,6 +116,7 @@ class ReposStore {
 }
 
 decorate(ReposStore, {
+  getLanguageFromFilters: action,
   isError: observable,
   isLoading: observable,
   languages: observable,
@@ -94,10 +127,10 @@ decorate(ReposStore, {
   setData: action,
   setInterval: action,
   setLanguage: action,
-  sortAsc: observable,
+  sortAsc: observable
 });
 
-const store = new ReposStore();
+const store = window.store = new ReposStore();
 
 
 export default store;
